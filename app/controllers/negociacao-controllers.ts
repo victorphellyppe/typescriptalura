@@ -2,6 +2,7 @@ import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { MensagemView } from "../views/mensagem-view.js";
 import { NegociacoesView } from "../views/negociacoes-view.js";
+import { DiasDaSemana } from "../enums/dias-da-semana.js";
 
 export class NegociacaoController {
     private inputData: HTMLInputElement;
@@ -32,7 +33,7 @@ export class NegociacaoController {
 }
     //criando um metodo para verificar se é dia util
     private ehDiaUtil(data: Date){
-        return data.getDay() > this.DOMINGO && data.getDay() < this.SABADO;
+        return data.getDay() > DiasDaSemana.DOMINGO && data.getDay() < DiasDaSemana.SABADO
     }
 
     private criaNegociacao(): Negociacao{
