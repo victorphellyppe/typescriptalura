@@ -1,4 +1,3 @@
-import { NegociacoesView } from './views/negociacoes-view.js';
 import { NegociacaoController } from './controllers/negociacao-controllers.js';
 
 
@@ -6,8 +5,14 @@ const controller = new NegociacaoController();
 
 const form = document.querySelector('.form');
 
-form.addEventListener('submit', event => {
-    event.preventDefault();
-    controller.adiciona();
-});
+if(form){
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        controller.adiciona();
+    });
+} else {
+    throw Error('Formulário não encontrado, verifique se ele existe!');  
+}
+
+
 
